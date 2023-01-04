@@ -1,5 +1,6 @@
 package com.example.homework_6_3_1
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -39,5 +40,11 @@ class SuggestionAdapter(
             }
 
         }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun filterList(filterList: ArrayList<String>) {
+        list = filterList
+         notifyDataSetChanged()
+    }
 
 }

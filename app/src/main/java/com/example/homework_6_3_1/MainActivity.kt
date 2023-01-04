@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 for (word in words){
                     if (word.startsWith("#")){
                         oldHashTag = word
-
+                        filter(text.toString())
                         val cursorPosition:Int = binding.editText.selectionEnd
                         oldPositionCursor = cursorPosition
                     }
@@ -89,4 +89,15 @@ class MainActivity : AppCompatActivity() {
         binding.editText.setSelection(binding.editText.text.length)
     }
 
+
+    private fun filter(text: String) {
+        val filteredList: ArrayList<String> = ArrayList()
+
+        for (item in hashtagList) {
+            if (item.toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(item)
+            }
+        }
+            suggestionAdapter.filterList(filteredList)
+    }
 }
