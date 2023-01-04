@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 for (word in words){
                     if (word.startsWith("#")){
                         oldHashTag = word
-                        filter(text.toString())
+                        filter(word)
                         val cursorPosition:Int = binding.editText.selectionEnd
                         oldPositionCursor = cursorPosition
                     }
